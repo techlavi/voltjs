@@ -1,0 +1,9 @@
+{
+  "name": "volt-example",
+  "description": "Demo volt example.",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "voltjs": "3.0.2"
+  }
+}

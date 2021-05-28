@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VoltJs example</title>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/voltjs/browser.js"></script>
+</head>
+<body>
+  <div id="display"></div>
+  <script type="text/tpl" id="demo.volt">
+    Hello {{ name }}!
+  </script>
+  <script type="text/javascript">
+    Volt.getTemplate = function (name) {
+      return document.getElementById(name).innerHTML;
+    };
+
+    var voltjs = new Volt();
+    document.getElementById('display').innerHTML = voltjs.fetch(
+      'demo.volt',
+      {name: 'World'}
+    );
+  </script>
+</body>
+</html>
