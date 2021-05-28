@@ -1,5 +1,5 @@
 {
-  "name": "volt-js",
+  "name": "voltjs",
   "version": "1.0.0",
   "description": "A PHP Volt templating engine for JavaScript (node/browser)",
   "scripts": {
@@ -9,11 +9,11 @@
     "prepublish": "mv -v dist/* ./",
     "publish": "npm publish",
     "postpublish": "rm ./browser.js ./node.js",
-    "doc": "https://github.com/techlavi/volt-js/wiki"
+    "doc": "https://github.com/techlavi/voltjs/wiki"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/techlavi/volt-js.git"
+    "url": "git+ssh://git@github.com/techlavi/voltjs.git"
   },
   "keywords": [
     "volt-js",
@@ -31,9 +31,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/techlavi/volt-js/issues"
+    "url": "https://github.com/techlavi/voltjs/issues"
   },
-  "homepage": "https://github.com/techlavi/volt-js#readme",
+  "homepage": "https://github.com/techlavi/voltjs#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/plugin-proposal-class-properties": "^7.13.0",

@@ -4,7 +4,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const Volt = require('volt-js/node')
+const Volt = require('voltjs/node')
 
 Volt.getTemplate = function (name) {
   return fs.readFileSync(path.normalize(`${__dirname}/${name}`), {encoding: 'utf-8'})
