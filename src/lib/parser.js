@@ -85,7 +85,7 @@ const voltParser = (getTemplate) => {
 
     while (true) {
       const tag = findTag(tpl)
-      if (tag && tag.index) {
+      if (tag) {
         // Start of the template before tag as text
         tree.push(applyPacking(tpl.slice(0, tag.index)))
       } else {
@@ -106,6 +106,7 @@ const voltParser = (getTemplate) => {
       } else if (tagContentCond) {
         // One of the conditions.
         const innerTag = tagContentCond[1].match(/^\s*(\w+)(.*)$/)
+
         if (innerTag) {
           const funcName = innerTag[1]
           const paramStr = (innerTag.length > 2) ? innerTag[2].replace(/^\s+|\s+$/g, '') : ''
