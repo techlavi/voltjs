@@ -1,5 +1,5 @@
 {
-  "name": "voltjs",
+  "name": "@techlavi/voltjs",
   "version": "1.0.0",
   "description": "A PHP Volt templating engine for JavaScript (node/browser)",
   "scripts": {
