@@ -19,12 +19,16 @@ const voltParser = (getTemplate) => {
     },
     for: (params) => {
       const args = params.match(/(.*)\sin\s(.*)$/)
-      return `for (var i in ${args[2]}) { if (Object.prototype.hasOwnProperty.call(${args[2]}, i)) { var ${args[1]} = ${args[2]}[i]; `;
+      buildInConditions.for.i += 1
+      return `for (var i${buildInConditions.for.i} in ${args[2]}) { if (Object.prototype.hasOwnProperty.call(${args[2]}, i${buildInConditions.for.i})) { var ${args[1]} = ${args[2]}[i${buildInConditions.for.i}]; `;
     },
     endfor: () => {
       return '}}';
     }
   }
+
+  // i for iterations init.
+  buildInConditions.for.i = 0;
 
   const findTag = (s, expression = '') => {
     const expressionAny = /^\s*(.+)\s*$/i
