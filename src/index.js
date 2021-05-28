@@ -1,12 +1,12 @@
 import voltParser from './lib/parser'
 
-function Volt(options) {
+function Volt(options = {}) {
   let volt = new Object()
 
   let getTemplate = options.getTemplate ? options.getTemplate : null
 
-  if (volt.getTemplate && !getTemplate) {
-    getTemplate = volt.getTemplate
+  if (Volt.getTemplate && !getTemplate) {
+    getTemplate = Volt.getTemplate
   } else if (!getTemplate) {
     getTemplate = (name) => {
       throw new Error('no getTemplate function defined.')
