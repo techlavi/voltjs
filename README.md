@@ -39,7 +39,7 @@ https://cdn.jsdelivr.net/npm/@techlavi/voltjs@1.0.0/browser.js
   ```npm run build```
 
 * Release on NPM:-
-  ```npm run publish```
+  ```npm run publish-npm```
 
 ### LICENSE
 

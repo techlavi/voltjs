@@ -6,9 +6,9 @@
     "test": "jest",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "prepublish-now": "mv -v dist/* ./",
-    "publish-now": "npm publish --access=public",
-    "postpublish-now": "rm ./browser.js ./node.js",
+    "prepublish-npm": "mv -v dist/* ./",
+    "publish-npm": "npm publish --access=public",
+    "postpublish-npm": "rm ./browser.js ./node.js; git checkout dist/browser.js; git checkout dist/node.js",
     "doc": "https://github.com/techlavi/voltjs/wiki"
   },
   "repository": {
