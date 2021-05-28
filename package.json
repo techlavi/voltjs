@@ -4,7 +4,7 @@
   "description": "A PHP Volt templating engine for JavaScript (node/browser)",
   "main": "dist/volt.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
     "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
@@ -46,6 +46,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "jest": "^27.0.1",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
   }
