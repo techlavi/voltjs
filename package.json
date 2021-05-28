@@ -2,10 +2,13 @@
   "name": "voltjs",
   "version": "1.0.0",
   "description": "A PHP Volt templating engine for JavaScript (node/browser)",
-  "main": "src/index.js",
+  "main": "dist/volt.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
     "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "publish": "npm publish",
     "doc": "https://github.com/techlavi/voltjs/wiki"
   },
   "repository": {
@@ -13,11 +16,11 @@
     "url": "git+ssh://git@github.com/techlavi/voltjs.git"
   },
   "keywords": [
-    "php-phalcon-volt",
+    "volt-js",
+    "javascript-template-engine",
     "volt-template-engine",
-    "js-template-engine",
-    "javascript-templates",
-    "volt-js"
+    "php-phalcon-volt",
+    "js-template-engine"
   ],
   "author": "Umakant Patil <umakantp@techlavi.com>",
   "contributors": [
