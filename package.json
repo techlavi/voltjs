@@ -2,13 +2,13 @@
   "name": "voltjs",
   "version": "1.0.0",
   "description": "A PHP Volt templating engine for JavaScript (node/browser)",
-  "main": "dist/volt.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
-    "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "prepublish": "mv -v dist/* ./",
     "publish": "npm publish",
+    "postpublish": "rm ./browser.js ./node.js",
     "doc": "https://github.com/techlavi/voltjs/wiki"
   },
   "repository": {
