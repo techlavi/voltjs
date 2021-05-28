@@ -13,11 +13,11 @@ VoltJs is written entirely in JavaScript, does not have any DOM/browser or third
 ### Using VoltJs with CDN
 ##### Always latest version (don't use in production)
 ```
-https://cdn.jsdelivr.net/npm/voltjs/dist/voltjs.min.js
+https://cdn.jsdelivr.net/npm/voltjs/browser.js
 ```
 ##### Current latest version (1.0.0)
 ```
-https://cdn.jsdelivr.net/npm/voltjs@1.0.0/dist/voltjs.min.js
+https://cdn.jsdelivr.net/npm/voltjs@1.0.0/browser.js
 ```
 
 ### DOCUMENTATION
@@ -35,8 +35,11 @@ https://cdn.jsdelivr.net/npm/voltjs@1.0.0/dist/voltjs.min.js
 * ES Lint tests:-
   ```npm run lint```
 
-* Run lint, run test, build, compress, distribution package and update examples in one command:-
+* Build and compress:-
   ```npm run build```
+
+* Release on NPM:-
+  ```npm run publish```
 
 ### LICENSE
 
