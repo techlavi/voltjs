@@ -1,0 +1,49 @@
+{
+  "name": "voltjs",
+  "version": "1.0.0",
+  "description": "A PHP Volt templating engine for JavaScript (node/browser)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "doc": "https://github.com/techlavi/voltjs/wiki"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/techlavi/voltjs.git"
+  },
+  "keywords": [
+    "php-phalcon-volt",
+    "volt-template-engine",
+    "js-template-engine",
+    "javascript-templates",
+    "volt-js"
+  ],
+  "author": "Umakant Patil <umakantp@techlavi.com>",
+  "contributors": [
+    {
+      "name": "Umakant Patil",
+      "email": "umakantp@techlavi.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/techlavi/voltjs/issues"
+  },
+  "homepage": "https://github.com/techlavi/voltjs#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.2",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  }
+}
