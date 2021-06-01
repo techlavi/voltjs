@@ -5,6 +5,22 @@ const rdelim = '}'
 const voltParser = (getTemplate) => {
 
   const buildInConditions = {
+    text: (content) => {
+      return `$VOLT_JS_TXT += ${JSON.stringify(content)}; `
+    },
+    comment: (content) => {
+      return `/* ${content.trim()} */`
+    },
+    variable: (s) => {
+      const variables = s.split('|')
+      let variable = variables[0]
+
+      for (let i = 1; i < variables.length; i += 1) {
+        variable = `$VoltJsFilters.${variables[i].trim()}(${variable.trim()})`
+      }
+
+      return `$VOLT_JS_TXT += ${variable.trim()}; `
+    },
     if: (params) => {
       return `if (${params}) {`
     },
@@ -24,6 +40,18 @@ const voltParser = (getTemplate) => {
     },
     endfor: () => {
       return '}}';
+    },
+    set: (params) => {
+      let finalValue = `var ${params}; `
+      const [name, value] = params.split('=')
+
+      if (value) {
+        const isPHPArray = value.trim().match(/^\[\s*(?:\'|\")\w+(?:\'|\")\s*:\s*/)
+        if (isPHPArray) {
+          finalValue = `var ${name.trim()} = ${value.trim().replace('[', '{').replace(new RegExp(']$'), '}')}; `
+        }
+      }
+      return finalValue
     }
   }
 
@@ -72,13 +100,6 @@ const voltParser = (getTemplate) => {
     return null
   }
 
-  const applyPacking = (txt) => {
-    if (txt.length > 0) {
-        return `$VOLT_JS_TXT += ${JSON.stringify(txt)};`
-    }
-    return ''
-  }
-
   const getTree = (tplRaw) => {
     let tree = []
     let tpl = tplRaw
@@ -87,7 +108,7 @@ const voltParser = (getTemplate) => {
       const tag = findTag(tpl)
       if (tag) {
         // Start of the template before tag as text
-        tree.push(applyPacking(tpl.slice(0, tag.index)))
+        tree.push(buildInConditions.text(tpl.slice(0, tag.index)))
       } else {
         break
       }
@@ -99,10 +120,10 @@ const voltParser = (getTemplate) => {
       const tagContentFunc = tag[1].match(/^%(.*)%$/)
       if (tagContentComment) {
         // It is a comment.
-        tree.push(`/* ${tagContentComment[1].trim()} */`)
+        tree.push(buildInConditions.comment(tagContentOutput[1]))
       } else if (tagContentOutput) {
         // It is output variable
-        tree.push(`$VOLT_JS_TXT += ${tagContentOutput[1].trim()};`)
+        tree.push(buildInConditions.variable(tagContentOutput[1]))
       } else if (tagContentCond) {
         // One of the conditions.
         const innerTag = tagContentCond[1].match(/^\s*(\w+)(.*)$/)
@@ -134,12 +155,14 @@ const voltParser = (getTemplate) => {
             }
           }
         }
+      } else {
+        // expressions? or direct code?? TODO
       }
     }
 
     if (tpl) {
       // Rest of the template after last tag as text
-      tree.push(applyPacking(tpl))
+      tree.push(buildInConditions.text(tpl))
     }
     return tree
   }
